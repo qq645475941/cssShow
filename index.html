@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            perspective-origin: 50% 50%;
+        }
+        div{
+            width: 400px;
+            height: 100%;
+
+            transform-style:preserve-3d;
+            transform-origin:150px 150px 0px;
+            transition: all 5s ease 0s;
+            position: relative;
+            left: 300px;
+            top: 300px;
+
+            animation:aaa 10s infinite linear ;
+
+
+        }
+        div img {
+            width: 300px;
+            height: 300px;
+            backface-visibility:visible;
+            opacity: 0.8;
+
+            position: absolute;
+
+        }
+        img:nth-child(1){transform: translateZ(150px)}
+        img:nth-child(2){transform: translateZ(-150px)}
+        img:nth-child(3){transform: rotateY(90deg) translateZ(150px)}
+        img:nth-child(4){transform: rotateY(90deg) translateZ(-150px)}
+        img:nth-child(5){transform: rotateX(90deg) translateZ(150px)}
+        img:nth-child(6){transform: rotateX(90deg) translateZ(-150px)}
+        @keyframes aaa {
+            0%{
+                transform:rotate3d(0,0,0,0deg) ;
+            }
+
+
+            100%{
+                transform:rotate3d(1,1,1,360deg);
+            }
+
+        }
+    </style>
+</head>
+<body>
+<a href="01.html">页面1</a>
+<a href="03.html">页面3</a>
+
+    <div>
+        <img src="images/liuyifei.jpg">
+        <img src="images/fanbingbing.jpg">
+        <img src="images/liushishi.jpg">
+        <img src="images/zhangxinyi.jpg">
+        <img src="images/zhaoliying.jpg">
+        <img src="images/chenhao.jpg">
+    </div>
+</body>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script>
+    $("div").hover(
+            function(){
+                //打开箱子
+                $("img").eq(0).css(
+                        {
+                            "webkitTransform":"translateZ(300px)",
+                            "webkitTransition":"6s"
+                        }
+                );
+                $("img").eq(1).css(
+                        {
+                            "webkitTransform":"translateZ(-300px)",
+                            "webkitTransition":"5s"
+                        }
+                );
+                $("img").eq(2).css(
+                        {
+                            "webkitTransform":"rotateY(90deg) translateZ(300px)",
+                            "webkitTransition":"4s"
+                        }
+                );
+                $("img").eq(3).css(
+                        {
+                            "webkitTransform":"rotateY(90deg) translateZ(-300px)",
+                            "webkitTransition":"3s"
+                        }
+                );
+                $("img").eq(4).css(
+                        {
+                            "webkitTransform":"rotateX(90deg) translateZ(300px)",
+                            "webkitTransition":"2s"
+                        }
+                );
+                $("img").eq(5).css(
+                        {
+                            "webkitTransform":"rotateX(90deg) translateZ(-300px)",
+                            "webkitTransition":"1s"
+                        }
+                );
+            },
+            function(){
+                //关闭箱子
+                $("img").eq(0).css(
+                        {
+                            "webkitTransform":"translateZ(150px)",
+                            "webkitTransition":"1s"
+                        }
+                );
+                $("img").eq(1).css(
+                        {
+                            "webkitTransform":"translateZ(-150px)",
+                            "webkitTransition":"2s"
+                        }
+                );
+                $("img").eq(2).css(
+                        {
+                            "webkitTransform":"rotateY(90deg) translateZ(150px)",
+                            "webkitTransition":"3s"
+                        }
+                );
+                $("img").eq(3).css(
+                        {
+                            "webkitTransform":"rotateY(90deg) translateZ(-150px)",
+                            "webkitTransition":"4s"
+                        }
+                );
+                $("img").eq(4).css(
+                        {
+                            "webkitTransform":"rotateX(90deg) translateZ(150px)",
+                            "webkitTransition":"5s"
+                        }
+                );
+                $("img").eq(5).css(
+                        {
+                            "webkitTransform":"rotateX(90deg) translateZ(-150px)",
+                            "webkitTransition":"6s"
+                        }
+                );
+            }
+    );
+</script>
+</html>
